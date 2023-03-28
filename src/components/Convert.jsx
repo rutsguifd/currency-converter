@@ -20,7 +20,7 @@ const Convert = () => {
   const [currentToCurrency, setCurrentToCurrency] = useState("UAH");
 
   const [fromAmount, setFromAmount] = useState(1);
-  const [trigger, { isError, isFetching, error }] =
+  const [fetchCurrencyConvert, { isError, isFetching, error }] =
     ConverterAPI.useLazyGetConvertedCurrencyQuery();
   const [toAmount, setToAmount] = useState(0);
 
@@ -29,7 +29,7 @@ const Convert = () => {
   }, []);
 
   async function getFromAmount(to, from, amount) {
-    const res = await trigger({
+    const res = await fetchCurrencyConvert({
       to,
       from,
       amount,
@@ -38,7 +38,7 @@ const Convert = () => {
   }
 
   async function getToAmount(to, from, amount) {
-    const res = await trigger({
+    const res = await fetchCurrencyConvert({
       to,
       from,
       amount,

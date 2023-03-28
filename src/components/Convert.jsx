@@ -64,7 +64,6 @@ const Convert = () => {
     setCurrentToCurrency(e.target.value);
     getFromAmount(e.target.value, currentFromCurrency, fromAmount);
   };
-  console.log(isFetching);
   return (
     <Paper
       variant="outlined"
